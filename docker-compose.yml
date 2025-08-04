@@ -1,8 +1,10 @@
 version: '3.0'
 services:
   activepieces:
-    image: ghcr.io/activepieces/activepieces:0.66.6
-    container_name: activepieces
+    build:
+      context: .
+      dockerfile: Dockerfile  # opcional si el nombre del Dockerfile es distinto
+    image: activepieces:local
     restart: unless-stopped
     ## Enable the following line if you already use AP_EXECUTION_MODE with SANDBOXED or old activepieces, checking the breaking change documentation for more info.
     ## privileged: true
